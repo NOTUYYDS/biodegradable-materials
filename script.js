@@ -38,4 +38,27 @@ document.addEventListener("DOMContentLoaded", function () {
             .replace(/(['"].*?['"])/g, '<span class="string">$1</span>'); // 字符串
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".slider-images img");
+    const dots = document.querySelectorAll(".slider-dots .dot");
+    let currentIndex = 0;
+
+    function updateSlider() {
+        images.forEach((img, index) => {
+            img.style.display = index === currentIndex ? "block" : "none";
+        });
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            currentIndex = index;
+            updateSlider();
+        });
+    });
+
+    updateSlider();
+});
 
