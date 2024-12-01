@@ -107,72 +107,94 @@ plt.show()
 
             </article>
 
-            <!-- 可降解聚合物的結構特徵與 3D 模型展示 -->
-            <article>
-                <h3>可降解聚合物的結構特徵</h3>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.6/3Dmol-min.js"></script>
-                <!-- PLA Section -->
-                <section>
-                    <h3>PLA 的結構特徵</h3>
-                    <ul>
-                        <li>全名：聚乳酸（Polylactic Acid）。</li>
-                        <li>結構單元：由乳酸分子（C<sub>3</sub>H<sub>6</sub>O<sub>3</sub>）聚合形成，含有酯基（-COO-）。</li>
-                        <li>具有良好的生物降解性，可在酶和水的作用下降解為乳酸分子。</li>
-                        <li>常用於短期使用的包裝材料，如食品容器和一次性用品。</li>
-                    </ul>
-                    <div id="viewer-pla" class="viewer-container"></div>
-                </section>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可降解聚合物的結構與應用</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.6/3Dmol-min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 可降解聚合物的結構特徵與 3D 模型展示 -->
+    <article>
+        <h3>可降解聚合物的結構特徵</h3>
 
-                <!-- PHA Section -->
-                <section>
-                    <h3>PHA 的結構特徵</h3>
-                    <ul>
-                        <li>全名：聚羥基烷酸酯（Polyhydroxyalkanoates）。</li>
-                        <li>結構單元：由細菌通過生物合成形成，含有酯基（-COO-）。</li>
-                        <li>降解產物為水和二氧化碳，對環境友好，具有良好的生物相容性。</li>
-                        <li>常用於農業覆蓋材料、醫療植入物和組織工程。</li>
-                    </ul>
-                    <div id="viewer-pha" class="viewer-container"></div>
-                </section>
-
-                <!-- PBS Section -->
-                <section>
-                    <h3>PBS 的結構特徵</h3>
-                    <ul>
-                        <li>全名：聚丁二酸丁二醇酯（Polybutylene Succinate）。</li>
-                        <li>結構單元：由丁二酸（-CO-(CH<sub>2</sub>)<sub>2</sub>-CO-）和 1,4-丁二醇（HO-(CH<sub>2</sub>)<sub>4</sub>-OH）通過酯鍵（-COO-）聚合形成。</li>
-                        <li>具有良好的生物降解性，可分解為水和二氧化碳。</li>
-                        <li>常用於農業覆蓋膜、生物可降解塑料袋及餐具。</li>
-                    </ul>
-                    <div id="viewer-pbs" class="viewer-container"></div>
-                </section>
-
-                <!-- PVA Section -->
-                <section>
-                    <h3>PVA 的結構特徵</h3>
-                    <ul>
-                        <li>全名：聚乙烯醇（Polyvinyl Alcohol）。</li>
-                        <li>結構單元：由乙酸乙烯酯（Vinyl Acetate）聚合後水解形成，主鏈為碳碳骨架，側基為羥基（-OH）。</li>
-                        <li>具有良好的水溶性和生物相容性，容易降解。</li>
-                        <li>廣泛用於膠黏劑、紡織工業、醫療領域及水溶性薄膜。</li>
-                    </ul>
-                    <div id="viewer-pva" class="viewer-container"></div>
-                </section>
-
-                <!-- Chitosan Section -->
-                <section>
-                    <h3>甲殼糖的結構特徵</h3>
-                    <ul>
-                        <li>全名：甲殼糖（Chitosan）。</li>
-                        <li>結構單元：由幾丁質（Chitin）脫乙酰化後生成，含有大量氨基（-NH<sub>2</sub>）。</li>
-                        <li>具有良好的抗菌性、生物相容性和生物降解性。</li>
-                        <li>常用於醫療敷料、食品包裝、化妝品及水處理。</li>
-                    </ul>
-                    <div id="viewer-chitosan" class="viewer-container"></div>
-                </section>
-            </article>
+        <!-- PLA Section -->
+        <section>
+            <h3>PLA 的結構特徵</h3>
+            <ul>
+                <li>全名：聚乳酸（Polylactic Acid）。</li>
+                <li>結構單元：由乳酸分子（C<sub>3</sub>H<sub>6</sub>O<sub>3</sub>）聚合形成，含有酯基（-COO-）。</li>
+                <li>具有良好的生物降解性，可在酶和水的作用下降解為乳酸分子。</li>
+                <li>常用於短期使用的包裝材料，如食品容器和一次性用品。</li>
+            </ul>
+            <div id="viewer-pla" class="viewer-container"></div>
         </section>
-    
+
+        <!-- PHA Section -->
+        <section>
+            <h3>PHA 的結構特徵</h3>
+            <ul>
+                <li>全名：聚羥基烷酸酯（Polyhydroxyalkanoates）。</li>
+                <li>結構單元：由細菌通過生物合成形成，含有酯基（-COO-）。</li>
+                <li>降解產物為水和二氧化碳，對環境友好，具有良好的生物相容性。</li>
+                <li>常用於農業覆蓋材料、醫療植入物和組織工程。</li>
+            </ul>
+            <div id="viewer-pha" class="viewer-container"></div>
+        </section>
+
+        <!-- PBS Section -->
+        <section>
+            <h3>PBS 的結構特徵</h3>
+            <ul>
+                <li>全名：聚丁二酸丁二醇酯（Polybutylene Succinate）。</li>
+                <li>結構單元：由丁二酸（-CO-(CH<sub>2</sub>)<sub>2</sub>-CO-）和 1,4-丁二醇（HO-(CH<sub>2</sub>)<sub>4</sub>-OH）通過酯鍵（-COO-）聚合形成。</li>
+                <li>具有良好的生物降解性，可分解為水和二氧化碳。</li>
+                <li>常用於農業覆蓋膜、生物可降解塑料袋及餐具。</li>
+            </ul>
+            <div id="viewer-pbs" class="viewer-container"></div>
+        </section>
+
+        <!-- PVA Section -->
+        <section>
+            <h3>PVA 的結構特徵</h3>
+            <ul>
+                <li>全名：聚乙烯醇（Polyvinyl Alcohol）。</li>
+                <li>結構單元：由乙酸乙烯酯（Vinyl Acetate）聚合後水解形成，主鏈為碳碳骨架，側基為羥基（-OH）。</li>
+                <li>具有良好的水溶性和生物相容性，容易降解。</li>
+                <li>廣泛用於膠黏劑、紡織工業、醫療領域及水溶性薄膜。</li>
+            </ul>
+            <div id="viewer-pva" class="viewer-container"></div>
+        </section>
+    </article>
+
+    <!-- JavaScript -->
+    <script>
+        // 3Dmol.js viewer setup for each polymer
+        const viewers = {
+            "viewer-pla": "pla.cml",
+            "viewer-pha": "pha.cml",
+            "viewer-pbs": "pbs.cml",
+            "viewer-pva": "pva.cml",
+        };
+
+        for (const [viewerId, file] of Object.entries(viewers)) {
+            const element = document.getElementById(viewerId);
+            if (element) {
+                const viewer = $3Dmol.createViewer(element, { defaultcolors: $3Dmol.rasmolElementColors });
+                viewer.addModelFromUrl(file, "cml", function () {
+                    viewer.setStyle({}, { stick: {} });
+                    viewer.zoomTo();
+                    viewer.render();
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+
 
           <!-- 結語 -->
         <section id="conclusion">
@@ -224,54 +246,7 @@ plt.show()
             }, 4000); // 每 4 秒切換一次文字
         });
 
-        // 圖片輪播
-        document.addEventListener("DOMContentLoaded", function () {
-            const images = document.querySelectorAll(".slider-images img");
-            const dots = document.querySelectorAll(".slider-dots .dot");
-            let currentIndex = 0;
 
-            function showSlide(index) {
-                images.forEach((img, i) => {
-                    img.classList.toggle("active", i === index);
-                });
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle("active", i === index);
-                });
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", () => {
-                    currentIndex = index;
-                    showSlide(currentIndex);
-                });
-            });
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                showSlide(currentIndex);
-            }, 5000); // 每 5 秒切換一次圖片
-        });
-
-        // 3Dmol.js viewer setup for each polymer
-        const viewers = {
-            "viewer-pla": "pla.cml",
-            "viewer-pha": "pha.cml",
-            "viewer-pbs": "pbs.cml",
-            "viewer-pva": "pva.cml",
-            "viewer-chitosan": "sugar.cml"
-        };
-
-        for (const [viewerId, file] of Object.entries(viewers)) {
-            const element = document.getElementById(viewerId);
-            if (element) {
-                const viewer = $3Dmol.createViewer(viewerId, { defaultcolors: $3Dmol.rasmolElementColors });
-                viewer.addModelFromUrl(file, "cml", function () {
-                    viewer.setStyle({}, { stick: {} });
-                    viewer.zoomTo();
-                    viewer.render();
-                });
-            }
-        }
     </script>
 </body>
 </html>
