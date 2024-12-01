@@ -179,4 +179,18 @@ pre {
 .slider-dots .dot.active {
     background-color: #006699; /* 激活的小點顏色 */
 }
+/* 主標題增加白色邊框 */
+h1 {
+    color: #006699; /* 主標題文字顏色 */
+    background-color: transparent; /* 背景透明 */
+    border: 2px solid #fff; /* 白色邊框 */
+    padding: 10px 20px; /* 內邊距讓邊框和文字有距離 */
+    display: inline-block; /* 邊框僅包裹文字部分 */
+    border-radius: 5px; /* 圓角邊框 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 添加陰影讓邊框更突出 */
+    margin-bottom: 1rem; /* 與下方內容分隔 */
+    font-size: 2.5rem; /* 調整文字大小 */
+    font-weight: bold; /* 強調文字 */
+    text-transform: uppercase; /* 全大寫字母 */
+}
 
