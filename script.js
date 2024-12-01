@@ -34,9 +34,3 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the slider
     showSlide(currentIndex);
 });
-
-
-    // 自動播放
-    setInterval(autoSlide, intervalTime);
-});
-
