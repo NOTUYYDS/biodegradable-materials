@@ -148,18 +148,13 @@ plt.show()
         ];
         let currentIndex = 0;
 
-        function changeFooterText() {
-            footerText.style.opacity = 0; // 淡出效果
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % texts.length; // 循環切換文字
-                footerText.innerHTML = texts[currentIndex]; // 更新文字
-                footerText.style.opacity = 1; // 淡入效果
-            }, 1000); // 等待 1 秒後切換文字
-        }
-
-        setInterval(changeFooterText, 2000); // 每 2 秒切換一次
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % texts.length; // 循環切換文字
+            footerText.innerHTML = texts[currentIndex]; // 更新文字
+        }, 4000); // 每 4 秒切換一次文字
     });
 </script>
+
 
 </body>
 </html>
