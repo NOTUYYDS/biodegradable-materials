@@ -239,3 +239,61 @@ pre {
         margin-bottom: 20px;
     }
 }
+pre {
+    background-color: #1e1e1e; /* 背景顏色 */
+    color: #dcdcdc; /* 基本文字顏色 */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* 滾動條 */
+    font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+code .keyword {
+    color: #569cd6; /* 藍色關鍵字 */
+    font-weight: bold;
+}
+
+code .comment {
+    color: #6a9955; /* 綠色註解 */
+    font-style: italic;
+}
+
+code .number {
+    color: #b5cea8; /* 綠色數字 */
+}
+
+code .string {
+    color: #ce9178; /* 橙色字串 */
+}
+
+/* 高亮關鍵字 */
+code .keyword {
+    color: #569cd6; /* 藍色 */
+    font-weight: bold;
+}
+
+/* 高亮字串 */
+code .string {
+    color: #ce9178; /* 橙色 */
+}
+
+/* 高亮註解 */
+code .comment {
+    color: #6a9955; /* 綠色 */
+    font-style: italic;
+}
+
+/* 高亮數字 */
+code .number {
+    color: #b5cea8; /* 淺綠色 */
+}
+
+/* 超連結樣式 */
+a {
+    color: #005f8d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
