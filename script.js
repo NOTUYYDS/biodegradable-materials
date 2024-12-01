@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressBar = document.querySelector(".progress-bar .progress");
     let currentIndex = 0;
     const totalImages = images.length;
-    const intervalTime = 3000; // 每張圖片停留時間（毫秒）
+    const intervalTime = 5000; // 每張圖片停留時間（毫秒）
 
     // 切換到指定圖片
     function showSlide(index) {
@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
             showSlide(currentIndex);
         });
     });
+
+    // 自動播放
+    setInterval(autoSlide, intervalTime);
+});
 
     // 自動播放
     setInterval(autoSlide, intervalTime);
