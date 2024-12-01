@@ -138,3 +138,45 @@ pre {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* 添加陰影 */
     margin: 1rem 0; /* 與上下文字分隔 */
 }
+/* 圖片滑動區域 */
+#image-slider {
+    position: relative;
+    max-width: 300px; /* 限制圖片區域寬度 */
+    margin: auto; /* 居中 */
+    overflow: hidden; /* 隱藏超出區域的內容 */
+    border-radius: 10px; /* 圓角效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+}
+
+.slider-images {
+    display: flex; /* 將圖片排成一行 */
+    transition: transform 0.5s ease-in-out; /* 平滑過渡效果 */
+}
+
+.slider-images img {
+    width: 100%; /* 圖片寬度自適應父容器 */
+    height: auto; /* 保持圖片比例 */
+    flex-shrink: 0; /* 防止圖片縮小 */
+}
+
+/* 小點樣式 */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dots .dot.active {
+    background-color: #006699; /* 激活的小點顏色 */
+}
+
