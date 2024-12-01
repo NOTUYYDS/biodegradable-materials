@@ -7,58 +7,63 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 頁眉 -->
     <header>
         <h1>塑造未來：生成式AI驅動的可降解材料視覺化與應用</h1>
         <p>——連結SDG12，化學與AI協同解決塑料污染挑戰</p>
     </header>
+
+    <!-- 主體內容 -->
     <main>
-<section id="application">
-    <h2>應用展示</h2>
-    <div id="image-slider">
-        <div class="slider-images">
-            <img src="3001.png" alt="PHA初始狀態">
-            <img src="3002.png" alt="PHA分解過程中">
-            <img src="3003.png" alt="PHA完全分解">
-        </div>
-        <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-    <p>
-        示例：模擬聚羥基脂肪酸酯 (Polyhydroxyalkanoates, PHAs) 作為生物基材料 (Bio-Based Materials)，
-        在土壤中逐漸分解的過程。初始狀態為完整包裝，經過一定時間逐步分解，最終完全降解為水和二氧化碳。
-    </p>
-</section>
+        <!-- 應用展示 -->
+        <section id="application">
+            <h2>應用展示</h2>
+            <div id="image-slider">
+                <div class="slider-images">
+                    <img src="3001.png" alt="PHA初始狀態">
+                    <img src="3002.png" alt="PHA分解過程中">
+                    <img src="3003.png" alt="PHA完全分解">
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <p>
+                示例：模擬聚羥基脂肪酸酯 (Polyhydroxyalkanoates, PHAs) 作為生物基材料 (Bio-Based Materials)，
+                在土壤中逐漸分解的過程。初始狀態為完整包裝，經過一定時間逐步分解，最終完全降解為水和二氧化碳。
+            </p>
+        </section>
 
-
+        <!-- 技術工具與方法 -->
         <section id="tools">
             <h2>技術工具與方法</h2>
-            
+
+            <!-- 生成式AI -->
             <article>
                 <h3>1. 生成式AI的技術介紹與應用案例</h3>
                 <p>生成式AI（如MidJourney與DALL-E）以其語言-圖像生成能力，能快速模擬可降解材料的應用場景，助力科技與日常生活的連結。</p>
                 <h4>技術特性：</h4>
                 <ul>
-                    <li>語義理解與視覺呈現： 基於輸入描述生成具象化場景，展現材料的應用價值。</li>
-                    <li>高效內容創建： 快速生成多樣化設計方案，縮短產品推廣周期。</li>
+                    <li>語義理解與視覺呈現：基於輸入描述生成具象化場景，展現材料的應用價值。</li>
+                    <li>高效內容創建：快速生成多樣化設計方案，縮短產品推廣周期。</li>
                 </ul>
                 <h4>應用案例：</h4>
                 <ul>
-                    <li>食品包裝模擬： 基於PLA設計的環保食品包裝，展示其輕便、耐用與降解特性。</li>
-                    <li>農業薄膜應用： 使用PHA製成的農業覆膜，在土壤中逐步降解，減少塑膠廢棄物的累積。</li>
-                    <li>一次性餐具設計： 高美觀度、高功能性的餐具設計，結合耐用性與生物降解性。</li>
+                    <li>食品包裝模擬：基於PLA設計的環保食品包裝，展示其輕便、耐用與降解特性。</li>
+                    <li>農業薄膜應用：使用PHA製成的農業覆膜，在土壤中逐步降解，減少塑膠廢棄物的累積。</li>
+                    <li>一次性餐具設計：高美觀度、高功能性的餐具設計，結合耐用性與生物降解性。</li>
                 </ul>
-                <h4>模擬場景圖像：</h4>
                 <p>使用生成式AI創建的高質量圖像，呈現這些場景，強化可降解材料在日常生活中的影響力。</p>
             </article>
 
+            <!-- ChatGPT 與 Python -->
             <article>
-               <h3>2. ChatGPT-4.0連接Python：可降解性能數據的模擬與分析</h3>
-<p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用ChatGPT-4.0，開發了一套Python的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
-<h4>模擬程式：</h4>
-<pre>
+                <h3>2. ChatGPT-4.0連接Python：可降解性能數據的模擬與分析</h3>
+                <p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用ChatGPT-4.0，開發了一套Python的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
+                <h4>模擬程式：</h4>
+                <pre>
 import pandas as pd
 import numpy as np
 
@@ -69,63 +74,46 @@ data = []
 for env in environments:
     for material in materials:
         for temp in range(10, 41, 10):  # 模擬10°C至40°C
-        degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
-        data.append([env, material, temp, round(degradation_time, 2)])
+            degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
+            data.append([env, material, temp, round(degradation_time, 2)])
 
 df = pd.DataFrame(data, columns=['Environment', 'Material', 'Temperature (°C)', 'Degradation Time (months)'])
 print(df)
-</pre>
-<h4>結果展示：</h4>
-<p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
-<h4>可視化圖表：</h4>
-<pre>
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-plt.figure(figsize=(10, 6))
-sns.barplot(data=df, x='Environment', y='Degradation Time (months)', hue='Material')
-plt.title('Degradation Time of Materials in Different Environments', fontsize=14)
-plt.xlabel('Environment', fontsize=12)
-plt.ylabel('Degradation Time (months)', fontsize=12)
-plt.legend(title='Material', fontsize=10)
-plt.show()
-</pre>
-
+                </pre>
+                <h4>結果展示：</h4>
+                <p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
             </article>
 
+            <!-- Avogadro -->
             <article>
                 <h3>3. Avogadro：分子結構建模與降解機制分析</h3>
                 <p>Avogadro 是專業的化學建模工具，用於創建和優化分子結構。我們使用 Avogadro 模擬了 PLA 和 PHA 的分子結構，並通過結構分析解釋其可降解特性。</p>
-                <h4>PLA 的結構特徵：</h4>
                 <ul>
-                    <li>含有酯基（-COO-），易受水解酶作用降解為乳酸分子。</li>
-                    <li>降解過程快速且環境影響小，適合用於短期使用的包裝材料。</li>
+                    <li>PLA：含有酯基，易受水解酶作用降解為乳酸分子。</li>
+                    <li>PHA：生物合成的聚合物，分解產物為水與二氧化碳。</li>
                 </ul>
-                <h4>PHA 的結構特徵：</h4>
-                <ul>
-                    <li>生物合成的聚合物，具有良好的生物相容性。</li>
-                    <li>分解產物為水與二氧化碳，適用於農業與醫療領域。</li>
-                </ul>
-                <h4>結構模型展示：</h4>
-                <p>透過 Avogadro 的分子結構圖，清晰呈現功能基團的位置與結構穩定性，幫助科學家了解其化學降解機制。</p>
                 <img src="images/material_structure.png" alt="Avogadro 模擬的分子結構">
             </article>
         </section>
 
+        <!-- 結語 -->
         <section id="conclusion">
             <h2>結語：化學與AI助力SDG12</h2>
             <p>生成式AI與化學建模的結合，為可降解材料的研究與應用開闢了新途徑：</p>
             <ul>
                 <li>生成式AI實現了從結構設計到應用場景的全方位視覺化，增強公眾對可降解材料的認知與接受度。</li>
-                <li>Avogadro 等專業工具為化學結構優化與降解機制分析提供精準支持，推動材料性能的持續改進。</li>
-                <li>ChatGPT-4.0 協助數據模擬與性能預測，並構建 GitHub 資源庫，促進了知識的分享與科研協作。</li>
+                <li>Avogadro 等專業工具為化學結構優化與降解機制分析提供精準支持。</li>
+                <li>ChatGPT-4.0 協助數據模擬與性能預測，促進了知識的分享與科研協作。</li>
             </ul>
-            <p>這些技術的應用不僅為減少塑料污染提供了切實可行的解決方案，更為實現 SDG12 中「負責任的消費與生產」目標注入了強大動力。我們期待在生成式AI與化學領域的更多創新合作，共同為環境保護與社會可持續發展作出貢獻。</p>
         </section>
     </main>
+
+    <!-- 頁腳 -->
     <footer>
         <p>&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用</p>
     </footer>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
