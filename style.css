@@ -7,15 +7,21 @@ body {
     color: #333;
     background-color: #f9f9f9;
     overflow-x: hidden; /* 防止水平滾動 */
+    padding-top: 100px; /* 為固定 header 留出空間 */
 }
 
 /* 頁眉樣式 */
 header {
-    background: linear-gradient(90deg, #005f8d, #0077b6);
+    position: fixed; /* 固定位置 */
+    top: 0; /* 距離視窗頂部 0px */
+    left: 0; /* 距離視窗左側 0px */
+    width: 100%; /* 寬度設置為 100% */
+    background: linear-gradient(90deg, #005f8d, #0077b6); /* 漸變背景色 */
     color: #fff;
-    padding: 2rem 1rem;
+    padding: 20px; /* 內邊距 */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 投影效果 */
+    z-index: 1000; /* 確保 header 位於最上層 */
 }
 
 header h1 {
@@ -23,12 +29,8 @@ header h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #006699;
     -webkit-text-stroke: 1px #fff; /* 白色文字描邊 */
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
-    background-color: transparent; /* 背景透明 */
-    display: inline-block;
-    margin-bottom: 1rem;
     font-weight: bold;
 }
 
@@ -44,21 +46,6 @@ main {
     margin: auto;
 }
 
-/* 標題樣式 */
-h2 {
-    color: #006699;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
 /* 區塊樣式 */
 section {
     margin-bottom: 3rem;
@@ -68,80 +55,52 @@ section {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* 圖片樣式 */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1.5rem 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* 標題樣式 */
+h2 {
+    color: #006699;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
-/* 滑動圖片區域樣式 */
-#image-slider {
-    position: relative;
-    max-width: 300px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* 頁腳樣式 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    margin-top: 3rem;
 }
 
-.slider-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+/* 頁腳文字動畫 */
+#footer-text {
+    animation: fadeInOut 4s infinite;
 }
 
-.slider-images img {
-    width: 100%;
-    height: auto;
-    flex-shrink: 0;
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
-.slider-images img:not(.active) {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.slider-images img.active {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* 小點樣式 */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.slider-dots .dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-dots .dot.active {
-    background-color: #006699;
-}
-
-
+/* 預格式化程式碼樣式 */
 pre {
-    background-color: #1e1e1e; /* 背景顏色 */
-    color: #dcdcdc; /* 基本文字顏色 */
+    background-color: #1e1e1e; /* 深色背景 */
+    color: #dcdcdc; /* 淺色文字 */
     padding: 15px;
     border-radius: 5px;
-    overflow-x: auto; /* 滾動條 */
+    overflow-x: auto;
     font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
+/* 程式碼高亮 */
 code .keyword {
     color: #569cd6; /* 藍色關鍵字 */
     font-weight: bold;
@@ -152,56 +111,12 @@ code .comment {
     font-style: italic;
 }
 
-code .number {
-    color: #b5cea8; /* 綠色數字 */
-}
-
 code .string {
     color: #ce9178; /* 橙色字串 */
 }
 
-/* 高亮關鍵字 */
-code .keyword {
-    color: #569cd6; /* 藍色 */
-    font-weight: bold;
-}
-
-/* 高亮字串 */
-code .string {
-    color: #ce9178; /* 橙色 */
-}
-
-/* 高亮註解 */
-code .comment {
-    color: #6a9955; /* 綠色 */
-    font-style: italic;
-}
-
-/* 高亮數字 */
 code .number {
-    color: #b5cea8; /* 淺綠色 */
-}
-
-/* 超連結樣式 */
-a {
-    color: #005f8d;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #0077b6;
-}
-
-/* 頁腳樣式 */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-    font-size: 0.9rem;
+    color: #b5cea8; /* 淺綠色數字 */
 }
 
 /* 響應式設計 */
@@ -221,50 +136,4 @@ footer {
     h2 {
         font-size: 1.5rem;
     }
-
-    #image-slider {
-        max-width: 90%; /* 小屏幕上圖片滑動區域變寬 */
-    }
-}
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 1.5rem 0;
-    font-size: 1rem;
-    position: relative;
-}
-
-#footer-text {
-    animation: fadeInOut 4s infinite; /* 持續動畫，每次 4 秒 */
-}
-
-/* 動畫定義 */
-@keyframes fadeInOut {
-    0% {
-        opacity: 0; /* 開始完全透明 */
-    }
-    50% {
-        opacity: 1; /* 中間完全顯示 */
-    }
-    100% {
-        opacity: 0; /* 結束完全透明 */
-    }
-}
-header {
-    position: fixed; /* 固定位置 */
-    top: 0; /* 距離視窗頂部 0px */
-    left: 0; /* 距離視窗左側 0px */
-    width: 100%; /* 寬度設置為 100% */
-    background-color: #004a99; /* 背景色 */
-    color: white; /* 字體顏色 */
-    padding: 20px; /* 內邊距 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 增加投影效果 */
-    z-index: 1000; /* 確保 header 位於最上層 */
-    box-sizing: border-box; /* 包含內邊距的計算 */
-}
-
-body {
-    margin: 0; /* 移除全局外邊距 */
-    padding-top: 100px; /* 為主內容留出空間，防止被 header 遮擋 */
 }
