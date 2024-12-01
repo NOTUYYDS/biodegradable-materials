@@ -130,17 +130,34 @@ img {
     background-color: #006699;
 }
 
-/* 程式碼塊樣式 */
-/* 程式碼塊樣式 */
-pre, code {
-    font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
-    font-size: 0.9rem; /* 調整字體大小 */
-    background-color: #1e1e1e; /* 背景色（深色模式） */
+
+pre {
+    background-color: #1e1e1e; /* 背景顏色 */
     color: #dcdcdc; /* 基本文字顏色 */
-    padding: 10px; /* 內邊距 */
-    border-radius: 5px; /* 圓角效果 */
-    overflow-x: auto; /* 超出部分滾動 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* 滾動條 */
+    font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+code .keyword {
+    color: #569cd6; /* 藍色關鍵字 */
+    font-weight: bold;
+}
+
+code .comment {
+    color: #6a9955; /* 綠色註解 */
+    font-style: italic;
+}
+
+code .number {
+    color: #b5cea8; /* 綠色數字 */
+}
+
+code .string {
+    color: #ce9178; /* 橙色字串 */
 }
 
 /* 高亮關鍵字 */
