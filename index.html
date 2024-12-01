@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>塑造未來：生成式AI驅動的可降解材料視覺化與應用</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.6/3Dmol-min.js"></script>
+    <style>
+        /* 您可以將這些樣式移動到 style.css 中 */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .viewer-container {
+            width: 500px;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        /* 圖片輪播相關樣式 */
+        #image-slider {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .slider-images img {
+            width: 100%;
+            display: none;
+        }
+        .slider-images img.active {
+            display: block;
+        }
+        .slider-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .slider-dots .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .slider-dots .dot.active {
+            background-color: #333;
+        }
+        /* 程式碼區塊樣式 */
+        pre code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            display: block;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- 頁眉 -->
@@ -20,7 +80,7 @@
             <h2>應用展示</h2>
             <div id="image-slider">
                 <div class="slider-images">
-                    <img src="3001.png" alt="PHA初始狀態">
+                    <img src="3001.png" alt="PHA初始狀態" class="active">
                     <img src="3002.png" alt="PHA分解過程中">
                     <img src="3003.png" alt="PHA完全分解">
                 </div>
@@ -43,7 +103,7 @@
             <!-- 生成式AI -->
             <article>
                 <h3>1. 生成式AI的技術介紹與應用案例</h3>
-                <p>生成式AI（如MidJourney與DALL-E）以其語言-圖像生成能力，能快速模擬可降解材料的應用場景，助力科技與日常生活的連結。</p>
+                <p>生成式AI（如 MidJourney 與 DALL-E）以其語言-圖像生成能力，能快速模擬可降解材料的應用場景，助力科技與日常生活的連結。</p>
                 <h4>技術特性：</h4>
                 <ul>
                     <li>語義理解與視覺呈現：基於輸入描述生成具象化場景，展現材料的應用價值。</li>
@@ -51,8 +111,8 @@
                 </ul>
                 <h4>應用案例：</h4>
                 <ul>
-                    <li>食品包裝模擬：基於PLA設計的環保食品包裝，展示其輕便、耐用與降解特性。</li>
-                    <li>農業薄膜應用：使用PHA製成的農業覆膜，在土壤中逐步降解，減少塑膠廢棄物的累積。</li>
+                    <li>食品包裝模擬：基於 PLA 設計的環保食品包裝，展示其輕便、耐用與降解特性。</li>
+                    <li>農業薄膜應用：使用 PHA 製成的農業覆膜，在土壤中逐步降解，減少塑膠廢棄物的累積。</li>
                     <li>一次性餐具設計：高美觀度、高功能性的餐具設計，結合耐用性與生物降解性。</li>
                 </ul>
                 <p>使用生成式AI創建的高質量圖像，呈現這些場景，強化可降解材料在日常生活中的影響力。</p>
@@ -60,158 +120,125 @@
 
             <!-- ChatGPT 與 Python -->
             <article>
-                <h3>2. ChatGPT-4.0連接Python：可降解性能數據的模擬與分析</h3>
-                <p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用ChatGPT-4.0，開發了一套Python的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
+                <h3>2. ChatGPT-4.0 連接 Python：可降解性能數據的模擬與分析</h3>
+                <p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用 ChatGPT-4.0，開發了一套 Python 的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
                 <h4>模擬程式：</h4>
-<pre>
-<code>
-<span class="keyword">import</span> pandas as pd
-<span class="keyword">import</span> numpy as np
+                <pre><code class="python">
+import pandas as pd
+import numpy as np
 
-environments = [<span class="string">'Soil'</span>, <span class="string">'Water'</span>, <span class="string">'Air'</span>]
-materials = [<span class="string">'PLA'</span>, <span class="string">'PHA'</span>, <span class="string">'Biodegradable Plastic'</span>]
+environments = ['Soil', 'Water', 'Air']
+materials = ['PLA', 'PHA', 'Biodegradable Plastic']
 
 data = []
-<span class="keyword">for</span> env <span class="keyword">in</span> environments:
-    <span class="keyword">for</span> material <span class="keyword">in</span> materials:
-        <span class="keyword">for</span> temp <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">10</span>, <span class="number">41</span>, <span class="number">10</span>):  <span class="comment"># 模擬10°C至40°C</span>
-            degradation_time = np.random.uniform(<span class="number">1</span>, <span class="number">12</span>) * (<span class="number">41</span> - temp) / <span class="number">10</span>
-            data.append([env, material, temp, <span class="keyword">round</span>(degradation_time, <span class="number">2</span>)])
-</code>
-</pre>
+for env in environments:
+    for material in materials:
+        for temp in range(10, 41, 10):  # 模擬10°C至40°C
+            degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
+            data.append([env, material, temp, round(degradation_time, 2)])
+                </code></pre>
 
                 <h4>結果展示：</h4>
                 <p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
-              <h4>可視化圖表：</h4>
-<pre>
-<code class="python">
-<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
-<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
 
-plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))
-sns.barplot(data=df, x=<span class="string">'Environment'</span>, y=<span class="string">'Degradation Time (months)'</span>, hue=<span class="string">'Material'</span>)
-plt.title(<span class="string">'Degradation Time of Materials in Different Environments'</span>, fontsize=<span class="number">14</span>)
-plt.xlabel(<span class="string">'Environment'</span>, fontsize=<span class="number">12</span>)
-plt.ylabel(<span class="string">'Degradation Time (months)'</span>, fontsize=<span class="number">12</span>)
-plt.legend(title=<span class="string">'Material'</span>, fontsize=<span class="number">10</span>)
+                <h4>可視化圖表：</h4>
+                <pre><code class="python">
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df, x='Environment', y='Degradation Time (months)', hue='Material')
+plt.title('Degradation Time of Materials in Different Environments', fontsize=14)
+plt.xlabel('Environment', fontsize=12)
+plt.ylabel('Degradation Time (months)', fontsize=12)
+plt.legend(title='Material', fontsize=10)
 plt.show()
-</code>
-</pre>
+                </code></pre>
+            </article>
 
+            <!-- Avogadro -->
+            <article>
+                <h3>3. Avogadro：分子結構建模與降解機制分析</h3>
+                <p>Avogadro 是專業的化學建模工具，用於創建和優化分子結構。我們使用 Avogadro 模擬了 PLA 和 PHA 的分子結構，並通過結構分析解釋其可降解特性。</p>
+                <h4>PLA 的結構特徵：</h4>
+                <ul>
+                    <li>含有酯基（-COO-），易受水解酶作用降解為乳酸分子。</li>
+                    <li>降解過程快速且環境影響小，適合用於短期使用的包裝材料。</li>
+                </ul>
+                <h4>PHA 的結構特徵：</h4>
+                <ul>
+                    <li>生物合成的聚合物，具有良好的生物相容性。</li>
+                    <li>分解產物為水與二氧化碳，適用於農業與醫療領域。</li>
+                </ul>
+                <p>透過 Avogadro 的分子結構圖，清晰呈現功能基團的位置與結構穩定性，幫助科學家了解其化學降解機制。</p>
+                <img src="images/material_structure.png" alt="Avogadro 模擬的分子結構">
+            </article>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodegradable Polymers</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.6/3Dmol-min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .viewer-container {
-            width: 500px;
-            height: 400px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-    </style>
-</head>
-<body>
-    <h1>Biodegradable Polymers</h1>
+            <!-- 可降解聚合物的結構特徵與 3D 模型展示 -->
+            <article>
+                <h2>可降解聚合物的結構特徵</h2>
 
-    <section>
-        <article>
-            <h3>3. Avogadro：分子結構建模與降解機制分析</h3>
-            <p>Avogadro 是專業的化學建模工具，用於創建和優化分子結構。我們使用 Avogadro 模擬了 PLA 和 PHA 的分子結構，並通過結構分析解釋其可降解特性。</p>
+                <!-- PLA Section -->
+                <section>
+                    <h3>PLA 的結構特徵</h3>
+                    <ul>
+                        <li>全名：聚乳酸（Polylactic Acid）。</li>
+                        <li>結構單元：由乳酸分子（C<sub>3</sub>H<sub>6</sub>O<sub>3</sub>）聚合形成，含有酯基（-COO-）。</li>
+                        <li>具有良好的生物降解性，可在酶和水的作用下降解為乳酸分子。</li>
+                        <li>常用於短期使用的包裝材料，如食品容器和一次性用品。</li>
+                    </ul>
+                    <div id="viewer-pla" class="viewer-container"></div>
+                </section>
 
-        <article>
-            <h2>PLA 的結構特徵</h2>
-            <ul>
-                <li>全名：聚乳酸（Polylactic Acid）。</li>
-                <li>結構單元：由乳酸分子（C3H6O3）聚合形成，含有酯基（-COO-）。</li>
-                <li>具有良好的生物降解性，可在酶和水的作用下降解為乳酸分子。</li>
-                <li>常用於短期使用的包裝材料，如食品容器和一次性用品。</li>
-            </ul>
-            <div id="viewer-pla" class="viewer-container"></div>
-        </article>
+                <!-- PHA Section -->
+                <section>
+                    <h3>PHA 的結構特徵</h3>
+                    <ul>
+                        <li>全名：聚羥基烷酸酯（Polyhydroxyalkanoates）。</li>
+                        <li>結構單元：由細菌通過生物合成形成，含有酯基（-COO-）。</li>
+                        <li>降解產物為水和二氧化碳，對環境友好，具有良好的生物相容性。</li>
+                        <li>常用於農業覆蓋材料、醫療植入物和組織工程。</li>
+                    </ul>
+                    <div id="viewer-pha" class="viewer-container"></div>
+                </section>
 
-        <article>
-            <h2>PHA 的結構特徵</h2>
-            <ul>
-                <li>全名：聚羥基烷酸酯（Polyhydroxyalkanoates）。</li>
-                <li>結構單元：由細菌通過生物合成形成，含有酯基（-COO-）。</li>
-                <li>降解產物為水和二氧化碳，對環境友好，具有良好的生物相容性。</li>
-                <li>常用於農業覆蓋材料、醫療植入物和組織工程。</li>
-            </ul>
-            <div id="viewer-pha" class="viewer-container"></div>
-        </article>
+                <!-- PBS Section -->
+                <section>
+                    <h3>PBS 的結構特徵</h3>
+                    <ul>
+                        <li>全名：聚丁二酸丁二醇酯（Polybutylene Succinate）。</li>
+                        <li>結構單元：由丁二酸（-CO-(CH<sub>2</sub>)<sub>2</sub>-CO-）和 1,4-丁二醇（HO-(CH<sub>2</sub>)<sub>4</sub>-OH）通過酯鍵（-COO-）聚合形成。</li>
+                        <li>具有良好的生物降解性，可分解為水和二氧化碳。</li>
+                        <li>常用於農業覆蓋膜、生物可降解塑料袋及餐具。</li>
+                    </ul>
+                    <div id="viewer-pbs" class="viewer-container"></div>
+                </section>
 
-        <article>
-            <h2>PBS 的結構特徵</h2>
-            <ul>
-                <li>全名：聚丁二酸丁二醇酯（Polybutylene Succinate）。</li>
-                <li>結構單元：由丁二酸（-CO-(CH2)2-CO-）和1,4-丁二醇（HO-(CH2)4-OH）通過酯鍵（-COO-）聚合形成。</li>
-                <li>具有良好的生物降解性，可分解為水和二氧化碳。</li>
-                <li>常用於農業覆蓋膜、生物可降解塑料袋及餐具。</li>
-            </ul>
-            <div id="viewer-pbs" class="viewer-container"></div>
-        </article>
+                <!-- PVA Section -->
+                <section>
+                    <h3>PVA 的結構特徵</h3>
+                    <ul>
+                        <li>全名：聚乙烯醇（Polyvinyl Alcohol）。</li>
+                        <li>結構單元：由乙酸乙烯酯（Vinyl Acetate）聚合後水解形成，主鏈為碳碳骨架，側基為羥基（-OH）。</li>
+                        <li>具有良好的水溶性和生物相容性，容易降解。</li>
+                        <li>廣泛用於膠黏劑、紡織工業、醫療領域及水溶性薄膜。</li>
+                    </ul>
+                    <div id="viewer-pva" class="viewer-container"></div>
+                </section>
 
-        <article>
-            <h2>PVA 的結構特徵</h2>
-            <ul>
-                <li>全名：聚乙烯醇（Polyvinyl Alcohol）。</li>
-                <li>結構單元：由乙酸乙烯酯（Vinyl Acetate）聚合後水解形成，主鏈為碳碳骨架，側基為羥基（-OH）。</li>
-                <li>具有良好的水溶性和生物相容性，容易降解。</li>
-                <li>廣泛用於膠黏劑、紡織工業、醫療領域及水溶性薄膜。</li>
-            </ul>
-            <div id="viewer-pva" class="viewer-container"></div>
-        </article>
-
-        <article>
-            <h2>甲殼糖的結構特徵</h2>
-            <ul>
-                <li>全名：甲殼糖（Chitosan）。</li>
-                <li>結構單元：由幾丁質（Chitin）脫乙酰化後生成，含有大量氨基（-NH2）。</li>
-                <li>具有良好的抗菌性、生物相容性和生物降解性。</li>
-                <li>常用於醫療敷料、食品包裝、化妝品及水處理。</li>
-            </ul>
-            <div id="viewer-chitosan" class="viewer-container"></div>
-        </article>
-    </section>
-
-    <script>
-        // 3Dmol.js viewer setup for each polymer
-        const viewers = {
-            "viewer-pla": "pla.cml",
-            "viewer-pha": "pha.cml",
-            "viewer-pbs": "pbs.cml",
-            "viewer-pva": "pva.cml",
-            "viewer-chitosan": "chitosan.cml"
-        };
-
-        for (const [viewerId, file] of Object.entries(viewers)) {
-            const viewer = $3Dmol.createViewer(viewerId);
-            viewer.addModelFromUrl(file, "cml");
-            viewer.setStyle({}, { stick: {} });
-            viewer.zoomTo();
-            viewer.render();
-        }
-    </script>
-</body>
-</html>
-
+                <!-- Chitosan Section -->
+                <section>
+                    <h3>甲殼糖的結構特徵</h3>
+                    <ul>
+                        <li>全名：甲殼糖（Chitosan）。</li>
+                        <li>結構單元：由幾丁質（Chitin）脫乙酰化後生成，含有大量氨基（-NH<sub>2</sub>）。</li>
+                        <li>具有良好的抗菌性、生物相容性和生物降解性。</li>
+                        <li>常用於醫療敷料、食品包裝、化妝品及水處理。</li>
+                    </ul>
+                    <div id="viewer-chitosan" class="viewer-container"></div>
+                </section>
+            </article>
+        </section>
 
         <!-- 結語 -->
         <section id="conclusion">
@@ -226,28 +253,76 @@ plt.show()
         </section>
     </main>
 
-<!-- 頁腳 -->
-<footer>
-    <p id="footer-text">&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用</p>
-</footer>
+    <!-- 頁腳 -->
+    <footer>
+        <p id="footer-text">&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用</p>
+    </footer>
 
-<!-- JavaScript -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const footerText = document.getElementById("footer-text");
-        const texts = [
-            "&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用",
-            "AI創作應用競賽暨成果展「AI生成．無限可能」"
-        ];
-        let currentIndex = 0;
+    <!-- JavaScript -->
+    <script>
+        // 頁腳文字切換
+        document.addEventListener("DOMContentLoaded", function () {
+            const footerText = document.getElementById("footer-text");
+            const texts = [
+                "&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用",
+                "AI創作應用競賽暨成果展「AI生成．無限可能」"
+            ];
+            let currentIndex = 0;
 
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % texts.length; // 循環切換文字
-            footerText.innerHTML = texts[currentIndex]; // 更新文字
-        }, 4000); // 每 4 秒切換一次文字
-    });
-</script>
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % texts.length; // 循環切換文字
+                footerText.innerHTML = texts[currentIndex]; // 更新文字
+            }, 4000); // 每 4 秒切換一次文字
+        });
 
+        // 圖片輪播
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".slider-images img");
+            const dots = document.querySelectorAll(".slider-dots .dot");
+            let currentIndex = 0;
 
+            function showSlide(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle("active", i === index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("active", i === index);
+                });
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    currentIndex = index;
+                    showSlide(currentIndex);
+                });
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                showSlide(currentIndex);
+            }, 5000); // 每 5 秒切換一次圖片
+        });
+
+        // 3Dmol.js viewer setup for each polymer
+        const viewers = {
+            "viewer-pla": "pla.cml",
+            "viewer-pha": "pha.cml",
+            "viewer-pbs": "pbs.cml",
+            "viewer-pva": "pva.cml",
+            "viewer-chitosan": "chitosan.cml"
+        };
+
+        for (const [viewerId, file] of Object.entries(viewers)) {
+            const element = document.getElementById(viewerId);
+            if (element) {
+                const viewer = $3Dmol.createViewer(viewerId, { defaultcolors: $3Dmol.rasmolElementColors });
+                viewer.addModelFromUrl(file, "cml", function () {
+                    viewer.setStyle({}, { stick: {} });
+                    viewer.zoomTo();
+                    viewer.render();
+                });
+            }
+        }
+    </script>
 </body>
 </html>
