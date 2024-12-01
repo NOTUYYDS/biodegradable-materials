@@ -14,25 +14,24 @@
     <main>
 
     <!-- 主體內容 -->
-    <main>
-        <!-- 應用展示 -->
-<section id="application">
-    <h2>應用展示</h2>
-    <div id="image-slider">
-        <div class="slider-images">
-            <img src="3003.png" alt="PHA初始狀態" class="active">
-            <img src="3002.png" alt="PHA分解過程中">
-            <img src="3003.png" alt="PHA完全分解">
+<main>
+    <!-- 應用展示 -->
+    <section id="application">
+        <h2>應用展示</h2>
+        <div id="slider-container">
+            <div class="slider-wrapper">
+                <img src="3001.png" alt="PHA初始狀態">
+                <img src="3002.png" alt="PHA分解過程中">
+                <img src="3003.png" alt="PHA完全分解">
+            </div>
         </div>
         <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
         </div>
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-    </div>
+    </section>
+</main>
     <p>
         示例：模擬聚羥基脂肪酸酯 (Polyhydroxyalkanoates, PHAs) 作為生物基材料 (Bio-Based Materials)，
         在土壤中逐漸分解的過程。初始狀態為完整包裝，經過一定時間逐步分解，最終完全降解為水和二氧化碳。
