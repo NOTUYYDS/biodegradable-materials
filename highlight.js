@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>語法高亮範例</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>程式碼高亮範例</h1>
-    <pre>
-<code>
-import pandas as pd
-import numpy as np
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".slider-wrapper");
+    const dots = document.querySelectorAll(".dot");
+    const slideCount = dots.length;
+    let currentIndex = 0;
 
-# Sample comment
-data = [1, 2, 3, 4]
-</code>
-    </pre>
-    <script src="highlight.js"></script>
-</body>
-</html>
+    function showSlide(index) {
+        // Update the transform property to slide
+        wrapper.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update active dot
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        showSlide(currentIndex);
+    }
+
+    // Auto-slide every 3 seconds
+    const interval = setInterval(nextSlide, 3000);
+
+    // Dot click event
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            showSlide(currentIndex);
+            clearInterval(interval); // Stop auto-slide when user interacts
+        });
+    });
+
+    // Initialize the slider
+    showSlide(currentIndex);
+});
