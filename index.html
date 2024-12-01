@@ -47,10 +47,10 @@
             </article>
 
             <article>
-                <h3>2. ChatGPT-4.0：可降解性能數據的模擬與分析</h3>
-                <p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們基於ChatGPT-4.0，開發了一套數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
-                <h4>模擬程式：</h4>
-                <pre>
+               <h3>2. ChatGPT-4.0：可降解性能數據的模擬與分析</h3>
+<p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們基於ChatGPT-4.0，開發了一套數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
+<h4>模擬程式：</h4>
+<pre>
 import pandas as pd
 import numpy as np
 
@@ -61,16 +61,16 @@ data = []
 for env in environments:
     for material in materials:
         for temp in range(10, 41, 10):  # 模擬10°C至40°C
-            degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
-            data.append([env, material, temp, round(degradation_time, 2)])
+        degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
+        data.append([env, material, temp, round(degradation_time, 2)])
 
 df = pd.DataFrame(data, columns=['Environment', 'Material', 'Temperature (°C)', 'Degradation Time (months)'])
 print(df)
-                </pre>
-                <h4>結果展示：</h4>
-                <p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
-                <h4>可視化圖表：</h4>
-                <pre>
+</pre>
+<h4>結果展示：</h4>
+<p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
+<h4>可視化圖表：</h4>
+<pre>
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -81,7 +81,8 @@ plt.xlabel('Environment', fontsize=12)
 plt.ylabel('Degradation Time (months)', fontsize=12)
 plt.legend(title='Material', fontsize=10)
 plt.show()
-                </pre>
+</pre>
+
             </article>
 
             <article>
