@@ -175,26 +175,6 @@ code .number {
     z-index: 2;
 }
 
-/* 點擊切換的圓點樣式 */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.slider-dots .dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-dots .dot.active {
-    background-color: #006699;
-}
 
 /* 進度條樣式 */
 .progress-bar {
