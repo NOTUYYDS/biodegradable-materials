@@ -231,3 +231,18 @@ code .number {
     margin: 0 10px;
     height: auto; /* 自動調整高度 */
 }
+@media (max-width: 768px) {
+    .image-text-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divider {
+        display: none; /* 隱藏分隔線 */
+    }
+
+    .image-block {
+        width: 100%; /* 單列排列，寬度設為 100% */
+        margin-bottom: 20px;
+    }
+}
