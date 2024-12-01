@@ -263,3 +263,11 @@ body {
     margin: 0; /* 移除整體頁面的外邊距 */
 }
 
+header {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #004a99;
+    height: 100px; /* 明確設定高度 */
+    width: 100%; /* 確保填滿寬度 */
+}
