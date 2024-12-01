@@ -317,3 +317,45 @@ a {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+/* Slider container */
+#slider-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Wrapper for sliding effect */
+.slider-wrapper {
+    display: flex;
+    width: 300%;
+    transition: transform 1s ease-in-out;
+}
+
+/* Images in the slider */
+.slider-wrapper img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Dots for navigation */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-dots .dot.active {
+    background-color: #333;
+}
+
