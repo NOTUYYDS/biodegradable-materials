@@ -252,23 +252,19 @@ footer {
     }
 }
 header {
-    background-color: #004a99; /* 確保背景色與頁面一致 */
+    position: fixed; /* 固定位置 */
+    top: 0; /* 距離視窗頂部 0px */
+    left: 0; /* 距離視窗左側 0px */
+    width: 100%; /* 寬度設置為 100% */
+    background-color: #004a99; /* 背景色 */
     color: white; /* 字體顏色 */
     padding: 20px; /* 內邊距 */
-    margin: 0; /* 確保無外邊距 */
-    box-sizing: border-box; /* 確保 padding 不影響寬度 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 增加投影效果 */
+    z-index: 1000; /* 確保 header 位於最上層 */
+    box-sizing: border-box; /* 包含內邊距的計算 */
 }
 
 body {
-    margin: 0; /* 移除整體頁面的外邊距 */
+    margin: 0; /* 移除全局外邊距 */
+    padding-top: 100px; /* 為主內容留出空間，防止被 header 遮擋 */
 }
-
-header {
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    background-color: #004a99;
-    height: 100px; /* 明確設定高度 */
-    width: 100%; /* 確保填滿寬度 */
-}
-     
