@@ -231,14 +231,23 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 1.5rem 0;
-    margin-top: 3rem;
     font-size: 1rem;
     position: relative;
-    animation: fadeInOut 5s infinite; /* 重複動畫 */
 }
 
 #footer-text {
-    transition: opacity 1s ease-in-out; /* 平滑淡入淡出效果 */
-    opacity: 1; /* 初始完全可見 */
+    animation: fadeInOut 4s infinite; /* 持續動畫，每次 4 秒 */
 }
 
+/* 動畫定義 */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* 開始完全透明 */
+    }
+    50% {
+        opacity: 1; /* 中間完全顯示 */
+    }
+    100% {
+        opacity: 0; /* 結束完全透明 */
+    }
+}
