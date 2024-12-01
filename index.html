@@ -82,6 +82,19 @@ print(df)
                 </pre>
                 <h4>結果展示：</h4>
                 <p>數據表明，材料在不同環境中的降解時間顯著不同，例如土壤中由於微生物活性高，降解速率最快。</p>
+                <h4>可視化圖表：</h4>
+                <pre>
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df, x='Environment', y='Degradation Time (months)', hue='Material')
+plt.title('Degradation Time of Materials in Different Environments', fontsize=14)
+plt.xlabel('Environment', fontsize=12)
+plt.ylabel('Degradation Time (months)', fontsize=12)
+plt.legend(title='Material', fontsize=10)
+plt.show()
+                </pre>
             </article>
 
             <!-- Avogadro -->
