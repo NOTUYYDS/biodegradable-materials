@@ -251,3 +251,15 @@ footer {
         opacity: 0; /* 結束完全透明 */
     }
 }
+header {
+    background-color: #004a99; /* 確保背景色與頁面一致 */
+    color: white; /* 字體顏色 */
+    padding: 20px; /* 內邊距 */
+    margin: 0; /* 確保無外邊距 */
+    box-sizing: border-box; /* 確保 padding 不影響寬度 */
+}
+
+body {
+    margin: 0; /* 移除整體頁面的外邊距 */
+}
+
