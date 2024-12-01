@@ -12,16 +12,16 @@ body {
 
 /* 頁眉樣式 */
 header {
-    position: fixed; /* 固定位置 */
-    top: 0; /* 距離視窗頂部 0px */
-    left: 0; /* 距離視窗左側 0px */
-    width: 100%; /* 寬度設置為 100% */
-    background: linear-gradient(90deg, #005f8d, #0077b6); /* 漸變背景色 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #005f8d, #0077b6);
     color: #fff;
-    padding: 20px; /* 內邊距 */
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 投影效果 */
-    z-index: 1000; /* 確保 header 位於最上層 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 header h1 {
@@ -29,8 +29,8 @@ header h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    -webkit-text-stroke: 1px #fff; /* 白色文字描邊 */
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     font-weight: bold;
 }
 
@@ -46,7 +46,6 @@ main {
     margin: auto;
 }
 
-/* 區塊樣式 */
 section {
     margin-bottom: 3rem;
     padding: 1rem;
@@ -55,7 +54,6 @@ section {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* 標題樣式 */
 h2 {
     color: #006699;
     font-size: 1.8rem;
@@ -74,7 +72,7 @@ footer {
     margin-top: 3rem;
 }
 
-/* 頁腳文字動畫 */
+/* 頁腳動畫 */
 #footer-text {
     animation: fadeInOut 4s infinite;
 }
@@ -90,79 +88,39 @@ footer {
 
 /* 預格式化程式碼樣式 */
 pre {
-    background-color: #1e1e1e; /* 深色背景 */
-    color: #dcdcdc; /* 淺色文字 */
+    background-color: #1e1e1e;
+    color: #dcdcdc;
     padding: 15px;
     border-radius: 5px;
     overflow-x: auto;
-    font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 0.9rem;
     line-height: 1.5;
-}
-
-/* 程式碼高亮 */
-code .keyword {
-    color: #569cd6; /* 藍色關鍵字 */
-    font-weight: bold;
-}
-
-code .comment {
-    color: #6a9955; /* 綠色註解 */
-    font-style: italic;
-}
-
-code .string {
-    color: #ce9178; /* 橙色字串 */
-}
-
-code .number {
-    color: #b5cea8; /* 淺綠色數字 */
-}
-
-/* 響應式設計 */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
 }
 
 /* 圖片容器樣式 */
 #image-slider {
     position: relative;
-    max-width: 600px; /* 增加寬度 */
-    height: 350px; /* 固定高度 */
+    max-width: 600px;
+    height: 350px;
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f5f5f5; /* 增加背景色，避免圖片未加載時出現空白 */
+    background-color: #f5f5f5;
 }
 
-
-/* 圖片過渡樣式 */
 .slider-images {
     position: relative;
     width: 100%;
-    height: 100%; /* 確保圖片高度占滿容器 */
+    height: 100%;
 }
 
 .slider-images img {
     position: absolute;
     width: 100%;
-    height: 100%; /* 確保圖片完全填充容器 */
-    object-fit: cover; /* 確保圖片保持比例顯示，裁剪超出部分 */
+    height: 100%;
+    object-fit: cover;
     top: 0;
     left: 0;
     opacity: 0;
@@ -175,13 +133,11 @@ code .number {
     z-index: 2;
 }
 
-
-/* 進度條樣式 */
 .progress-bar {
     position: relative;
     width: 100%;
-    height: 8px; /* 調整高度 */
-    background-color: #ddd; /* 改善背景對比 */
+    height: 8px;
+    background-color: #ddd;
     margin-top: 15px;
     border-radius: 5px;
     overflow: hidden;
@@ -192,57 +148,55 @@ code .number {
     height: 100%;
     width: 0;
     background-color: #006699;
-    transition: width 5s linear; /* 與圖片切換時間同步 */
+    transition: width 5s linear;
 }
 
-/* 圖文區塊容器 */
-.image-text-container {
+/* 圖文區塊樣式 */
+.feature-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 20px;
 }
 
-/* 單個圖片區塊 */
-.image-block {
+.feature-image {
     text-align: center;
-    width: 45%; /* 縮小圖片區塊寬度 */
+    width: 45%;
 }
 
-.image-block p {
+.feature-image p {
     font-size: 1rem;
     margin-bottom: 10px;
     color: #333;
     font-weight: bold;
 }
 
-/* 圖片樣式 */
-.image-block img {
+.feature-image img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 區隔線樣式 */
 .divider {
     width: 2px;
     background-color: #ccc;
     margin: 0 10px;
-    height: auto; /* 自動調整高度 */
+    height: auto;
 }
+
 @media (max-width: 768px) {
-    .image-text-container {
+    .feature-container {
         flex-direction: column;
         align-items: center;
     }
 
     .divider {
-        display: none; /* 隱藏分隔線 */
+        display: none;
     }
 
-    .image-block {
-        width: 100%; /* 單列排列，寬度設為 100% */
+    .feature-image {
+        width: 100%;
         margin-bottom: 20px;
     }
 }
