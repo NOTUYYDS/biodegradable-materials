@@ -168,29 +168,7 @@ plt.show()
                 </section>
             </article>
         </section>
-        <script>
-    // 定義模型與對應的 cml 文件
-    const viewers = {
-        "viewer-pla": "pla.cml",
-        "viewer-pha": "pha.cml",
-        "viewer-pbs": "pbs.cml",
-        "viewer-pva": "pva.cml",
-        "viewer-chitosan": "chitosan.cml"
-    };
-
-    // 使用 3Dmol.js 加載模型
-    for (const [viewerId, file] of Object.entries(viewers)) {
-        const container = document.getElementById(viewerId);
-        if (container) {
-            const viewer = $3Dmol.createViewer(container, { backgroundColor: "#f4f4f4" });
-            viewer.addModelFromUrl(file, "cml", function () {
-                viewer.setStyle({}, { stick: {} }); // 設定顯示為棒狀模型
-                viewer.zoomTo(); // 自動調整縮放
-                viewer.render();
-            });
-        }
-    }
-</script>
+    
 
         <!-- 結語 -->
         <section id="conclusion">
