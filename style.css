@@ -24,12 +24,10 @@ header h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #006699;
-    background-color: transparent;
-    border: 2px solid #fff;
-    padding: 10px 20px;
+    -webkit-text-stroke: 1px #fff; /* 白色文字描邊 */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+    background-color: transparent; /* 背景透明 */
     display: inline-block;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
     font-weight: bold;
 }
@@ -189,4 +187,3 @@ footer {
         max-width: 90%; /* 小屏幕上圖片滑動區域變寬 */
     }
 }
-
