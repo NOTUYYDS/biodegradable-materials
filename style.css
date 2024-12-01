@@ -9,7 +9,7 @@ body {
     overflow-x: hidden; /* 防止水平滾動 */
 }
 
-/* 頁眉 */
+/* 頁眉樣式 */
 header {
     background: linear-gradient(90deg, #005f8d, #0077b6);
     color: #fff;
@@ -23,6 +23,15 @@ header h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #006699;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 header p {
@@ -30,7 +39,7 @@ header p {
     margin: 0.5rem 0 0;
 }
 
-/* 主要內容區域 */
+/* 主體內容樣式 */
 main {
     padding: 2rem;
     max-width: 1200px;
@@ -38,19 +47,15 @@ main {
 }
 
 /* 標題樣式 */
-h1, h2 {
+h2 {
     color: #006699;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 1rem;
     font-weight: bold;
 }
 
-h2 {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* 段落樣式 */
 p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
@@ -75,18 +80,72 @@ img {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 滑動圖片樣式 */
-#image-slider img {
-    display: none;
-    transition: opacity 1s ease-in-out;
+/* 滑動圖片區域樣式 */
+#image-slider {
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#image-slider img.active {
-    display: block;
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-images img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.slider-images img:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slider-images img.active {
     opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* 區塊連結樣式 */
+/* 小點樣式 */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dots .dot.active {
+    background-color: #006699;
+}
+
+/* 程式碼塊樣式 */
+pre {
+    background-color: #000;
+    color: #0f0;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin: 1rem 0;
+}
+
+/* 超連結樣式 */
 a {
     color: #005f8d;
     text-decoration: none;
@@ -125,72 +184,9 @@ footer {
     h2 {
         font-size: 1.5rem;
     }
-}
-/* 程式碼塊樣式 */
-pre {
-    background-color: #000; /* 黑色背景 */
-    color: #0f0; /* 綠色文字 */
-    padding: 1rem; /* 內邊距 */
-    border-radius: 5px; /* 圓角效果 */
-    overflow-x: auto; /* 水平滾動條 */
-    font-family: 'Courier New', Courier, monospace; /* 等寬字體 */
-    font-size: 0.9rem; /* 字體稍微縮小 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* 添加陰影 */
-    margin: 1rem 0; /* 與上下文字分隔 */
-}
-/* 圖片滑動區域 */
-#image-slider {
-    position: relative;
-    max-width: 300px; /* 限制圖片區域寬度 */
-    margin: auto; /* 居中 */
-    overflow: hidden; /* 隱藏超出區域的內容 */
-    border-radius: 10px; /* 圓角效果 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加陰影 */
-}
 
-.slider-images {
-    display: flex; /* 將圖片排成一行 */
-    transition: transform 0.5s ease-in-out; /* 平滑過渡效果 */
-}
-
-.slider-images img {
-    width: 100%; /* 圖片寬度自適應父容器 */
-    height: auto; /* 保持圖片比例 */
-    flex-shrink: 0; /* 防止圖片縮小 */
-}
-
-/* 小點樣式 */
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.slider-dots .dot {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.slider-dots .dot.active {
-    background-color: #006699; /* 激活的小點顏色 */
-}
-/* 主標題增加白色邊框 */
-h1 {
-    color: #006699; /* 主標題文字顏色 */
-    background-color: transparent; /* 背景透明 */
-    border: 2px solid #fff; /* 白色邊框 */
-    padding: 10px 20px; /* 內邊距讓邊框和文字有距離 */
-    display: inline-block; /* 邊框僅包裹文字部分 */
-    border-radius: 5px; /* 圓角邊框 */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 添加陰影讓邊框更突出 */
-    margin-bottom: 1rem; /* 與下方內容分隔 */
-    font-size: 2.5rem; /* 調整文字大小 */
-    font-weight: bold; /* 強調文字 */
-    text-transform: uppercase; /* 全大寫字母 */
+    #image-slider {
+        max-width: 90%; /* 小屏幕上圖片滑動區域變寬 */
+    }
 }
 
