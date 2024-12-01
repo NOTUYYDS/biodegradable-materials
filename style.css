@@ -185,8 +185,46 @@ pre {
     height: auto;
 }
 
+/* 圖文區塊容器 */
+.image-text-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* 單個圖片區塊 */
+.image-block {
+    text-align: center;
+    width: 45%; /* 控制每個區塊的寬度 */
+}
+
+.image-block p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 圖片樣式 */
+.image-block img {
+    max-width: 80%; /* 將圖片寬度縮小到 80% */
+    height: auto; /* 保持圖片比例 */
+    border-radius: 10px; /* 圓角處理 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+}
+
+/* 分隔線樣式 */
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    margin: 0 10px;
+    height: auto; /* 自動調整高度 */
+}
+
 @media (max-width: 768px) {
-    .feature-container {
+    .feature-container,
+    .image-text-container {
         flex-direction: column;
         align-items: center;
     }
@@ -195,7 +233,8 @@ pre {
         display: none;
     }
 
-    .feature-image {
+    .feature-image,
+    .image-block {
         width: 100%;
         margin-bottom: 20px;
     }
