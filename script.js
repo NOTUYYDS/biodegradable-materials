@@ -1,49 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".slider-images img");
-    const dots = document.querySelectorAll(".slider-dots .dot");
-    const progressBar = document.querySelector(".progress-bar .progress");
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".slider-wrapper");
+    const dots = document.querySelectorAll(".dot");
+    const slideCount = dots.length;
     let currentIndex = 0;
-    const totalImages = images.length;
-    const intervalTime = 5000; // 每張圖片停留時間（毫秒）
 
-    // 切換到指定圖片
     function showSlide(index) {
-        images.forEach((img, i) => {
-            img.classList.toggle("active", i === index);
-        });
+        // Update the transform property to slide
+        wrapper.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update active dot
         dots.forEach((dot, i) => {
             dot.classList.toggle("active", i === index);
         });
-
-        // 重置並更新進度條
-        progressBar.style.width = "0";
-        setTimeout(() => {
-            progressBar.style.width = "100%";
-        }, 50); // 微調延遲，確保動畫正常運行
     }
 
-    // 自動切換圖片
-    function autoSlide() {
-        currentIndex = (currentIndex + 1) % totalImages;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
         showSlide(currentIndex);
     }
 
-    // 初始化進度條
-    setTimeout(() => {
-        progressBar.style.width = "100%";
-    }, 50);
+    // Auto-slide every 3 seconds
+    const interval = setInterval(nextSlide, 3000);
 
-    // 點擊小點手動切換
-    dots.forEach((dot, index) => {
+    // Dot click event
+    dots.forEach(dot => {
         dot.addEventListener("click", () => {
-            currentIndex = index;
+            currentIndex = parseInt(dot.dataset.index);
             showSlide(currentIndex);
+            clearInterval(interval); // Stop auto-slide when user interacts
         });
     });
 
-    // 自動播放
-    setInterval(autoSlide, intervalTime);
+    // Initialize the slider
+    showSlide(currentIndex);
 });
+
 
     // 自動播放
     setInterval(autoSlide, intervalTime);
