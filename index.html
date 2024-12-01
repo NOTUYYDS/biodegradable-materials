@@ -133,12 +133,33 @@ plt.show()
         </section>
     </main>
 
-    <!-- 頁腳 -->
-    <footer>
-        <p>&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用</p>
-    </footer>
+<!-- 頁腳 -->
+<footer>
+    <p id="footer-text">&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用</p>
+</footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const footerText = document.getElementById("footer-text");
+        const texts = [
+            "&copy; 2024 塑造未來：生成式AI驅動的可降解材料視覺化與應用",
+            "AI創作應用競賽暨成果展「AI生成．無限可能」"
+        ];
+        let currentIndex = 0;
+
+        function changeFooterText() {
+            footerText.style.opacity = 0; // 淡出效果
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % texts.length; // 循環切換文字
+                footerText.innerHTML = texts[currentIndex]; // 更新文字
+                footerText.style.opacity = 1; // 淡入效果
+            }, 1000); // 等待 1 秒後切換文字
+        }
+
+        setInterval(changeFooterText, 5000); // 每 5 秒切換一次
+    });
+</script>
+
 </body>
 </html>
