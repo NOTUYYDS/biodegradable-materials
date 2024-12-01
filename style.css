@@ -1,43 +1,129 @@
+/* 全局樣式 */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #f9f9f9;
+    overflow-x: hidden; /* 防止水平滾動 */
 }
+
+/* 頁眉 */
 header {
-    background: #006699;
+    background: linear-gradient(90deg, #005f8d, #0077b6);
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 1rem;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+/* 主要內容區域 */
 main {
     padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
 }
+
+/* 標題樣式 */
 h1, h2 {
     color: #006699;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
+
+h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 段落樣式 */
+p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* 區塊樣式 */
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
+
+/* 圖片樣式 */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* 滑動圖片樣式 */
+#image-slider img {
+    display: none;
+    transition: opacity 1s ease-in-out;
+}
+
+#image-slider img.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 區塊連結樣式 */
+a {
+    color: #005f8d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0077b6;
+}
+
+/* 頁腳樣式 */
 footer {
     background: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: 0.9rem;
 }
-a {
-    color: #006699;
-    text-decoration: none;
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }
-a:hover {
-    text-decoration: underline;
-}
+
