@@ -99,26 +99,119 @@ plt.show()
 </pre>
 
 
-            </article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodegradable Polymers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.6/3Dmol-min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .viewer-container {
+            width: 500px;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Biodegradable Polymers</h1>
 
-            <!-- Avogadro -->
-            <article>
-                <h3>3. Avogadro：分子結構建模與降解機制分析</h3>
-                <p>Avogadro 是專業的化學建模工具，用於創建和優化分子結構。我們使用 Avogadro 模擬了 PLA 和 PHA 的分子結構，並通過結構分析解釋其可降解特性。</p>
-                <h4>PLA 的結構特徵：</h4>
-                <ul>
-                    <li>含有酯基（-COO-），易受水解酶作用降解為乳酸分子。</li>
-                    <li>降解過程快速且環境影響小，適合用於短期使用的包裝材料。</li>
-                </ul>
-                <h4>PHA 的結構特徵：</h4>
-                <ul>
-                    <li>生物合成的聚合物，具有良好的生物相容性。</li>
-                    <li>分解產物為水與二氧化碳，適用於農業與醫療領域。</li>
-                </ul>
-                <p>透過 Avogadro 的分子結構圖，清晰呈現功能基團的位置與結構穩定性，幫助科學家了解其化學降解機制。</p>
-                <img src="images/material_structure.png" alt="Avogadro 模擬的分子結構">
-            </article>
-        </section>
+    <section>
+        <article>
+            <h3>3. Avogadro：分子結構建模與降解機制分析</h3>
+            <p>Avogadro 是專業的化學建模工具，用於創建和優化分子結構。我們使用 Avogadro 模擬了 PLA 和 PHA 的分子結構，並通過結構分析解釋其可降解特性。</p>
+
+        <article>
+            <h2>PLA 的結構特徵</h2>
+            <ul>
+                <li>全名：聚乳酸（Polylactic Acid）。</li>
+                <li>結構單元：由乳酸分子（C3H6O3）聚合形成，含有酯基（-COO-）。</li>
+                <li>具有良好的生物降解性，可在酶和水的作用下降解為乳酸分子。</li>
+                <li>常用於短期使用的包裝材料，如食品容器和一次性用品。</li>
+            </ul>
+            <div id="viewer-pla" class="viewer-container"></div>
+        </article>
+
+        <article>
+            <h2>PHA 的結構特徵</h2>
+            <ul>
+                <li>全名：聚羥基烷酸酯（Polyhydroxyalkanoates）。</li>
+                <li>結構單元：由細菌通過生物合成形成，含有酯基（-COO-）。</li>
+                <li>降解產物為水和二氧化碳，對環境友好，具有良好的生物相容性。</li>
+                <li>常用於農業覆蓋材料、醫療植入物和組織工程。</li>
+            </ul>
+            <div id="viewer-pha" class="viewer-container"></div>
+        </article>
+
+        <article>
+            <h2>PBS 的結構特徵</h2>
+            <ul>
+                <li>全名：聚丁二酸丁二醇酯（Polybutylene Succinate）。</li>
+                <li>結構單元：由丁二酸（-CO-(CH2)2-CO-）和1,4-丁二醇（HO-(CH2)4-OH）通過酯鍵（-COO-）聚合形成。</li>
+                <li>具有良好的生物降解性，可分解為水和二氧化碳。</li>
+                <li>常用於農業覆蓋膜、生物可降解塑料袋及餐具。</li>
+            </ul>
+            <div id="viewer-pbs" class="viewer-container"></div>
+        </article>
+
+        <article>
+            <h2>PVA 的結構特徵</h2>
+            <ul>
+                <li>全名：聚乙烯醇（Polyvinyl Alcohol）。</li>
+                <li>結構單元：由乙酸乙烯酯（Vinyl Acetate）聚合後水解形成，主鏈為碳碳骨架，側基為羥基（-OH）。</li>
+                <li>具有良好的水溶性和生物相容性，容易降解。</li>
+                <li>廣泛用於膠黏劑、紡織工業、醫療領域及水溶性薄膜。</li>
+            </ul>
+            <div id="viewer-pva" class="viewer-container"></div>
+        </article>
+
+        <article>
+            <h2>甲殼糖的結構特徵</h2>
+            <ul>
+                <li>全名：甲殼糖（Chitosan）。</li>
+                <li>結構單元：由幾丁質（Chitin）脫乙酰化後生成，含有大量氨基（-NH2）。</li>
+                <li>具有良好的抗菌性、生物相容性和生物降解性。</li>
+                <li>常用於醫療敷料、食品包裝、化妝品及水處理。</li>
+            </ul>
+            <div id="viewer-chitosan" class="viewer-container"></div>
+        </article>
+    </section>
+
+    <script>
+        // 3Dmol.js viewer setup for each polymer
+        const viewers = {
+            "viewer-pla": "pla.cml",
+            "viewer-pha": "pha.cml",
+            "viewer-pbs": "pbs.cml",
+            "viewer-pva": "pva.cml",
+            "viewer-chitosan": "chitosan.cml"
+        };
+
+        for (const [viewerId, file] of Object.entries(viewers)) {
+            const viewer = $3Dmol.createViewer(viewerId);
+            viewer.addModelFromUrl(file, "cml");
+            viewer.setStyle({}, { stick: {} });
+            viewer.zoomTo();
+            viewer.render();
+        }
+    </script>
+</body>
+</html>
+
 
         <!-- 結語 -->
         <section id="conclusion">
