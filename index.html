@@ -27,6 +27,9 @@
                 <img src="3003.png" alt="PHA完全分解" class="slider-image">
             </div>
         </div>
+        <div id="progress-bar-container" style="width: 100%; height: 10px; background-color: #ddd; margin-top: 10px;">
+            <div id="progress-bar" style="height: 100%; width: 0; background-color: #4caf50;"></div>
+        </div>
         <p>
             示例：模擬聚羥基脂肪酸酯 (Polyhydroxyalkanoates, PHAs) 作為生物基材料 (Bio-Based Materials)，
             在土壤中逐漸分解的過程。初始狀態為完整包裝，經過一定時間逐步分解，最終完全降解為水和二氧化碳。
@@ -65,13 +68,41 @@
         text-align: center;
         padding: 20px;
     }
+
+    /* 進度條樣式 */
+    #progress-bar-container {
+        width: 100%;
+        height: 10px;
+        background-color: #ddd;
+        margin-top: 10px;
+    }
+
+    #progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #4caf50;
+    }
 </style>
+
 <script>
     // 預設的圖片顯示時間
     let currentIndex = 0;
     const images = document.querySelectorAll('.slider-image');
     const totalImages = images.length;
+    const progressBar = document.getElementById('progress-bar');
+    const progressInterval = 3000; // 每張圖片顯示時間
 
+    // 更新進度條的函數
+    function updateProgressBar() {
+        progressBar.style.transition = 'none'; // 取消過渡動畫
+        progressBar.style.width = '0'; // 進度條歸零
+        setTimeout(() => {
+            progressBar.style.transition = `width ${progressInterval}ms linear`; // 恢復過渡動畫
+            progressBar.style.width = '100%'; // 填滿進度條
+        }, 50);
+    }
+
+    // 改變圖片的函數
     function changeImage() {
         // 移除當前圖片的 active 類別
         images[currentIndex].classList.remove('active');
@@ -81,11 +112,18 @@
 
         // 添加 active 類別到下一張圖片
         images[currentIndex].classList.add('active');
+
+        // 更新進度條
+        updateProgressBar();
     }
 
     // 設置每3秒切換一次圖片
-    setInterval(changeImage, 3000); 
+    setInterval(changeImage, progressInterval);
+    
+    // 初始化進度條
+    updateProgressBar();
 </script>
+
 
 
 
