@@ -22,9 +22,9 @@
         <h2>應用展示</h2>
         <div id="image-slider">
             <div class="slider-images">
-                <img src="3003.png" alt="PHA初始狀態" class="active">
-                <img src="3002.png" alt="PHA分解過程中">
-                <img src="3003.png" alt="PHA完全分解">
+                <img src="3001.png" alt="PHA初始狀態" class="slider-image active"> 
+                <img src="3002.png" alt="PHA分解過程中" class="slider-image">
+                <img src="3003.png" alt="PHA完全分解" class="slider-image">
             </div>
         </div>
         <p>
@@ -33,6 +33,60 @@
         </p>
     </section>
 </main>
+
+<style>
+    #image-slider {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .slider-images {
+        display: flex;
+        transition: opacity 1s ease-in-out; /* 淡入淡出效果 */
+    }
+
+    .slider-image {
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        position: absolute;
+    }
+
+    .slider-image.active {
+        opacity: 1;
+        position: relative;
+    }
+
+    /* Optional: Add some styles for the section to center everything */
+    #application {
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+<script>
+    // 預設的圖片顯示時間
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.slider-image');
+    const totalImages = images.length;
+
+    function changeImage() {
+        // 移除當前圖片的 active 類別
+        images[currentIndex].classList.remove('active');
+
+        // 更新索引，實現循環顯示
+        currentIndex = (currentIndex + 1) % totalImages;
+
+        // 添加 active 類別到下一張圖片
+        images[currentIndex].classList.add('active');
+    }
+
+    // 設置每3秒切換一次圖片
+    setInterval(changeImage, 3000); 
+</script>
+
 
 
  
