@@ -306,30 +306,30 @@ plt.show()
                 "萍碧來自土壤的聯繫，為農業和環保提供解決方案。作為一種穩定的可降解材料，它適應惡劣條件，為環境友好的未來奠定基礎。",
             quotes: "「時間會證明，我對土地的貢獻。」"
         },
-      {
-    name: "微芙（PVA）",
-    img: "4004.png",
-    traits: [
-        "靈動聰慧：微芙能迅速溶解於水，展現出獨特的實用性。",
-        "溫柔實用：在醫療和清潔場景中，微芙總是輕輕解決問題。",
-        "適應力強：它能融入多種應用場景，發揮非凡的潛力。"
-    ],
-    background:
-        "微芙來自對水和純淨的追求，能在清潔劑、醫療薄膜等場景中發揮重要作用。它溶於水後消失無痕，是環保應用的典範。",
-    quotes: "「我有一個夢想，我想讓純淨成為可能。」",
-    stand: {
-        name: "水流聖者",
-        appearance: "水藍色的人形替身，流線型設計，象徵水的純淨與靈活。",
-        ability: "操控水進行清潔和防護，還能完全融入環境中，留下潔淨的空間。"
-    }
-}
+        {
+            name: "微芙（PVA）",
+            img: "4004.png",
+            traits: [
+                "靈動聰慧：微芙能迅速溶解於水，展現出獨特的實用性。",
+                "溫柔實用：在醫療和清潔場景中，微芙總是輕輕解決問題。",
+                "適應力強：它能融入多種應用場景，發揮非凡的潛力。"
+            ],
+            background:
+                "微芙來自對水和純淨的追求，能在清潔劑、醫療薄膜等場景中發揮重要作用。它溶於水後消失無痕，是環保應用的典範。",
+            quotes: "「我有一個夢想，我想讓純淨成為可能。」",
+            stand: {
+                name: "水流聖者",
+                appearance: "水藍色的人形替身，流線型設計，象徵水的純淨與靈活。",
+                ability: "操控水進行清潔和防護，還能完全融入環境中，留下潔淨的空間。"
+            }
+        }
+    ];
 
-
-    // 點擊按鈕後隨機顯示角色
+    // 點擊事件邏輯
     document.getElementById("choose-character").addEventListener("click", function () {
         const character = characters[Math.floor(Math.random() * characters.length)];
         const displayDiv = document.getElementById("character-display");
-        displayDiv.style.display = "block";
+        displayDiv.style.display = "block"; // 顯示角色資訊區域
         displayDiv.innerHTML = `
             <h3>您的代表角色：${character.name}</h3>
             <div style="display: flex; align-items: center; gap: 20px;">
@@ -343,11 +343,21 @@ plt.show()
                     <p>${character.background}</p>
                     <h4>語錄：</h4>
                     <p><em>${character.quotes}</em></p>
+                    ${
+                        character.stand
+                            ? `
+                    <h4>替身：${character.stand.name}</h4>
+                    <p><strong>外形：</strong>${character.stand.appearance}</p>
+                    <p><strong>能力：</strong>${character.stand.ability}</p>
+                    `
+                            : ""
+                    }
                 </div>
             </div>
         `;
     });
 </script>
+>
 
 
     <!-- 頁腳 -->
