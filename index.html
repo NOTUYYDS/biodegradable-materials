@@ -20,9 +20,9 @@
     <!-- 應用展示 -->
     <section id="application">
         <h2>應用展示</h2>
-        <div id="image-slider">
-            <div class="slider-images">
-                <img src="3001.png" alt="PHA初始狀態" class="slider-image active"> 
+        <div id="image-slider" style="position: relative;">
+            <div class="slider-images" id="slider-images">
+                <img src="3001.png" alt="PHA初始狀態" class="slider-image active">
                 <img src="3002.png" alt="PHA分解過程中" class="slider-image">
                 <img src="3003.png" alt="PHA完全分解" class="slider-image">
             </div>
@@ -45,11 +45,12 @@
         width: 100%;
         height: 300px;
         overflow: hidden;
+        cursor: pointer; /* 讓滑動區域顯示為可點擊 */
     }
 
     .slider-images {
         display: flex;
-        transition: opacity 1s ease-in-out; /* 淡入淡出效果 */
+        transition: transform 0.5s ease-in-out;
     }
 
     .slider-image {
@@ -63,12 +64,6 @@
     .slider-image.active {
         opacity: 1;
         position: relative;
-    }
-
-    /* Optional: Add some styles for the section to center everything */
-    #application {
-        text-align: center;
-        padding: 20px;
     }
 
     /* 進度圓點樣式 */
@@ -97,6 +92,10 @@
     const images = document.querySelectorAll('.slider-image');
     const totalImages = images.length;
     const progressDots = document.querySelectorAll('.progress-dot');
+    const sliderImages = document.getElementById('slider-images');
+
+    let startX = 0;
+    let isDragging = false;
 
     // 改變圖片的函數
     function changeImage() {
@@ -113,7 +112,62 @@
     }
 
     // 設置每3秒切換一次圖片
-    setInterval(changeImage, 3000);
+    let interval = setInterval(changeImage, 3000);
+
+    // 手動滑動圖片的處理函數
+    function handleTouchStart(event) {
+        // 開始拖動時記錄起始位置
+        startX = event.touches[0].clientX;
+        isDragging = true;
+        clearInterval(interval);  // 停止自動播放
+    }
+
+    function handleTouchMove(event) {
+        if (!isDragging) return;
+
+        // 計算拖動的距離
+        const moveX = event.touches[0].clientX - startX;
+
+        if (moveX > 50) {
+            // 向右滑動，切換到前一張圖片
+            prevImage();
+            isDragging = false;
+        } else if (moveX < -50) {
+            // 向左滑動，切換到下一張圖片
+            nextImage();
+            isDragging = false;
+        }
+    }
+
+    function handleTouchEnd() {
+        isDragging = false;
+    }
+
+    function prevImage() {
+        // 切換到上一張圖片
+        images[currentIndex].classList.remove('active');
+        progressDots[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        images[currentIndex].classList.add('active');
+        progressDots[currentIndex].classList.add('active');
+    }
+
+    function nextImage() {
+        // 切換到下一張圖片
+        images[currentIndex].classList.remove('active');
+        progressDots[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % totalImages;
+        images[currentIndex].classList.add('active');
+        progressDots[currentIndex].classList.add('active');
+    }
+
+    // 監聽觸摸事件
+    sliderImages.addEventListener('touchstart', handleTouchStart);
+    sliderImages.addEventListener('touchmove', handleTouchMove);
+    sliderImages.addEventListener('touchend', handleTouchEnd);
+
+    // 更新圖片的 transform 以實現滑動的效果
+    sliderImages.style.transform = `translateX(-${currentIndex * 100}%)`;
 </script>
 
 
