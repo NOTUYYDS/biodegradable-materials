@@ -27,8 +27,10 @@
                 <img src="3003.png" alt="PHA完全分解" class="slider-image">
             </div>
         </div>
-        <div id="progress-bar-container" style="width: 100%; height: 10px; background-color: #ddd; margin-top: 10px;">
-            <div id="progress-bar" style="height: 100%; width: 0; background-color: #4caf50;"></div>
+        <div id="progress-dots-container" style="margin-top: 10px;">
+            <span class="progress-dot active"></span>
+            <span class="progress-dot"></span>
+            <span class="progress-dot"></span>
         </div>
         <p>
             示例：模擬聚羥基脂肪酸酯 (Polyhydroxyalkanoates, PHAs) 作為生物基材料 (Bio-Based Materials)，
@@ -69,17 +71,22 @@
         padding: 20px;
     }
 
-    /* 進度條樣式 */
-    #progress-bar-container {
-        width: 100%;
-        height: 10px;
-        background-color: #ddd;
-        margin-top: 10px;
+    /* 進度圓點樣式 */
+    #progress-dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
     }
 
-    #progress-bar {
-        height: 100%;
-        width: 0;
+    .progress-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+        transition: background-color 0.3s;
+    }
+
+    .progress-dot.active {
         background-color: #4caf50;
     }
 </style>
@@ -89,35 +96,24 @@
     let currentIndex = 0;
     const images = document.querySelectorAll('.slider-image');
     const totalImages = images.length;
-    const progressBar = document.getElementById('progress-bar');
-    const progressInterval = 3000; // 每張圖片顯示時間
-
-    // 更新進度條的函數
-    function updateProgressBar() {
-        const progress = (currentIndex + 1) / totalImages * 100;
-        progressBar.style.width = `${progress}%`;
-    }
+    const progressDots = document.querySelectorAll('.progress-dot');
 
     // 改變圖片的函數
     function changeImage() {
         // 移除當前圖片的 active 類別
         images[currentIndex].classList.remove('active');
+        progressDots[currentIndex].classList.remove('active');
 
         // 更新索引，實現循環顯示
         currentIndex = (currentIndex + 1) % totalImages;
 
         // 添加 active 類別到下一張圖片
         images[currentIndex].classList.add('active');
-
-        // 更新進度條
-        updateProgressBar();
+        progressDots[currentIndex].classList.add('active');
     }
 
     // 設置每3秒切換一次圖片
-    setInterval(changeImage, progressInterval);
-    
-    // 初始化進度條
-    updateProgressBar();
+    setInterval(changeImage, 3000);
 </script>
 
 
