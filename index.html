@@ -94,12 +94,8 @@
 
     // 更新進度條的函數
     function updateProgressBar() {
-        progressBar.style.transition = 'none'; // 取消過渡動畫
-        progressBar.style.width = '0'; // 進度條歸零
-        setTimeout(() => {
-            progressBar.style.transition = `width ${progressInterval}ms linear`; // 恢復過渡動畫
-            progressBar.style.width = '100%'; // 填滿進度條
-        }, 50);
+        const progress = (currentIndex + 1) / totalImages * 100;
+        progressBar.style.width = `${progress}%`;
     }
 
     // 改變圖片的函數
