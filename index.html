@@ -148,30 +148,24 @@
 <h4>模擬程式：</h4>
 <pre>
 <code>
-import pandas as pd
-import numpy as np
+<span class="keyword">import</span> pandas as pd
+<span class="keyword">import</span> numpy as np
 
-# 定義環境和材料
-environments = ['Soil', 'Water', 'Air']
-materials = ['PLA', 'PHA', 'Biodegradable Plastic']
+environments = [<span class="string">'Soil'</span>, <span class="string">'Water'</span>, <span class="string">'Air'</span>]
+materials = [<span class="string">'PLA'</span>, <span class="string">'PHA'</span>, <span class="string">'Biodegradable Plastic'</span>]
 
-# 初始化資料清單
 data = []
-
-# 資料生成迴圈
-for env in environments:
-    for material in materials:
-        for temp in range(10, 41, 10):  # 模擬 10°C 至 40°C
-            degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
-            data.append([env, material, temp, round(degradation_time, 2)])
-
-# 創建 DataFrame
-df = pd.DataFrame(data, columns=['Environment', 'Material', 'Temperature (°C)', 'Degradation Time (weeks)'])
-
-# 顯示 DataFrame
+<span class="keyword">for</span> env <span class="keyword">in</span> environments:
+    <span class="keyword">for</span> material <span class="keyword">in</span> materials:
+        <span class="keyword">for</span> temp <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">10</span>, <span class="number">41</span>, <span class="number">10</span>):  <span class="comment"># 模擬10°C至40°C</span>
+            degradation_time = np.random.uniform(<span class="number">1</span>, <span class="number">12</span>) * (<span class="number">41</span> - temp) / <span class="number">10</span>
+            data.append([env, material, temp, <span class="keyword">round</span>(degradation_time, <span class="number">2</span>)])
+            
+df = pd.DataFrame(data, columns=[<span class="string">'Environment'</span>, <span class="string">'Material'</span>, <span class="string">'Temperature (°C)'</span>, <span class="string">'Degradation Time (weeks)'</span>])
 df
 </code>
 </pre>
+
 
 
                 <h4>結果展示：</h4>
