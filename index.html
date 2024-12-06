@@ -143,27 +143,36 @@
     <p>使用生成式AI中的MidJourney與DALL-E，呈現這些場景，MidJourney是一款專注於創意與藝術風格的文本生成圖像工具，擅長抽象化、幻想場景及高美學細節處理。DALL-E 由 OpenAI 開發，專注於準確再現文本描述，兼具寫實與創造性，適用於多元場景。透過AI生成視覺化場景，用於農業技術培訓及可降解材料的宣傳，促進更廣泛的社會接受度。</p>
 </article>
 
-            <!-- ChatGPT 與 Python -->
-            <article>
-                <h2>2. ChatGPT與Python：可降解性能數據的模擬與分析</h2>
-                <p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用大家最熟悉不過的AI-ChatGPT，開發了一套Python的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
-                <h4>模擬程式：</h4>
+<h2>2. ChatGPT與Python：可降解性能數據的模擬與分析</h2>
+<p>生成式AI不僅支持視覺化，也能輔助材料科學中的數據建模與性能模擬。我們使用大家最熟悉不過的AI-ChatGPT，開發了一套Python的數據模擬系統，探索不同環境與溫度對降解效率的影響。</p>
+<h4>模擬程式：</h4>
 <pre>
 <code>
-<span class="keyword">import</span> pandas as pd
-<span class="keyword">import</span> numpy as np
+import pandas as pd
+import numpy as np
 
-environments = [<span class="string">'Soil'</span>, <span class="string">'Water'</span>, <span class="string">'Air'</span>]
-materials = [<span class="string">'PLA'</span>, <span class="string">'PHA'</span>, <span class="string">'Biodegradable Plastic'</span>]
+# 定義環境和材料
+environments = ['Soil', 'Water', 'Air']
+materials = ['PLA', 'PHA', 'Biodegradable Plastic']
 
+# 初始化資料清單
 data = []
-<span class="keyword">for</span> env <span class="keyword">in</span> environments:
-    <span class="keyword">for</span> material <span class="keyword">in</span> materials:
-        <span class="keyword">for</span> temp <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">10</span>, <span class="number">41</span>, <span class="number">10</span>):  <span class="comment"># 模擬10°C至40°C</span>
-            degradation_time = np.random.uniform(<span class="number">1</span>, <span class="number">12</span>) * (<span class="number">41</span> - temp) / <span class="number">10</span>
-            data.append([env, material, temp, <span class="keyword">round</span>(degradation_time, <span class="number">2</span>)])
+
+# 資料生成迴圈
+for env in environments:
+    for material in materials:
+        for temp in range(10, 41, 10):  # 模擬 10°C 至 40°C
+            degradation_time = np.random.uniform(1, 12) * (41 - temp) / 10
+            data.append([env, material, temp, round(degradation_time, 2)])
+
+# 創建 DataFrame
+df = pd.DataFrame(data, columns=['Environment', 'Material', 'Temperature (°C)', 'Degradation Time (weeks)'])
+
+# 顯示 DataFrame
+df
 </code>
 </pre>
+
 
                 <h4>結果展示：</h4>
 <p>這段程式碼模擬了材料的降解行為，提供了不同環境、材料和溫度條件下的降解時間數據，這些數據可用於：</p>
