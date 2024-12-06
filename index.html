@@ -181,6 +181,9 @@ df
 <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
 <span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
 
+<span class="keyword"></span>
+df[<span class="string">'Degradation Time (months)'</span>] = df[<span class="string">'Degradation Time (weeks)'</span>] / <span class="number">4.33</span>
+
 plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))
 sns.barplot(data=df, x=<span class="string">'Environment'</span>, y=<span class="string">'Degradation Time (months)'</span>, hue=<span class="string">'Material'</span>)
 plt.title(<span class="string">'Degradation Time of Materials in Different Environments'</span>, fontsize=<span class="number">14</span>)
@@ -190,6 +193,7 @@ plt.legend(title=<span class="string">'Material'</span>, fontsize=<span class="n
 plt.show()
 </code>
 </pre>
+
             </article>
 
             <!-- Avogadro -->
